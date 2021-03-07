@@ -16,20 +16,20 @@ class App extends Component {
 		console.log("here");
 		console.log(ticker);
 
-		// fetch("http://localhost:8080/fund?ticker=" + ticker)
-		// 	.then((res) => res.json())
-		// 	.then((data) => {
+		fetch("https://stormy-ridge-08228.herokuapp.com/fund?ticker=" + ticker)
+			.then((res) => res.json())
+			.then((data) => {
 
-		// 		this.setState({
-		// 			name: data.name,
-		// 			holdings: data.holdings,
-		// 		});
+				this.setState({
+					name: data.name,
+					holdings: data.holdings,
+				});
 
-		// 		console.log(data.name);
-		// 		console.log(data.ticker);
-		// 		console.log(data.holdings);
-		// 	})
-		// 	.catch(console.log);
+				console.log(data.name);
+				console.log(data.ticker);
+				console.log(data.holdings);
+			})
+			.catch(console.log);
 	}
 
 	render() {
