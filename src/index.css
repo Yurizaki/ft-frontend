@@ -1,11 +1,24 @@
-body {
+html {
+    padding: 10px;
+}
+
+/* html {
+  color: #dcdcdc !important;
+  background-image: none !important;
+  background-color: #292929 !important;
+} */
+
+
+
+
+/* body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+ "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+ "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #daeefd;
-  /* fallback for old browsers */
-  /* 70e9c2 */
   background: #2bb24c;
   margin: 0;
   color: white;
@@ -20,7 +33,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+ monospace;
 }
 
 .subscribe-box {
@@ -122,5 +136,4 @@ h1 {
 
 .site {
   margin: 50px;
-}
-/*# sourceMappingURL=index.css.map */
+} */

@@ -15,17 +15,19 @@ class MyForm extends React.Component {
 	}
 
 	handleSubmit(event) {
-		// alert("A name was submitted: " + this.state.value);
 		event.preventDefault();
-        console.log(this.state.value);
-        this.props.onSearch(this.state.value);
+		console.log(this.state.value);
+		this.props.onSearch(this.state.value);
 	}
 
 	render() {
 		return (
-			<div className="subscribe-box">
-				<h2></h2>
-				<form className="subscribe" onSubmit={this.handleSubmit}>
+			<div className="row">
+
+				<div className="column">
+					<h1>Enter Ticker</h1>
+				</div>
+				<form className="column column-75" onSubmit={this.handleSubmit}>
 					<input
 						placeholder="IITU"
 						autoComplete="off"
