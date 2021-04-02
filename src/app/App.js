@@ -38,7 +38,7 @@ class App extends Component {
 	}
 
 	apiCall(ticker) {
-		let prodUrl = 'https://warm-river-13012.herokuapp.com/fund?ticker=';
+		let prodUrl = 'https://stormy-ridge-08228.herokuapp.com//fund?ticker=';
 		let testUrl = 'http://localhost:8080/fund?ticker=';
 		let url = window.location.hostname.includes('localhost') ? testUrl : prodUrl;
 
