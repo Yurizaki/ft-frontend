@@ -12,7 +12,7 @@ ReactDOM.render(
 );
 
 if (process.env.TEST_CONFIG) {
-  console.log(process.env.TEST_CONFIG);
+  console.log(process.env.TOKEN);
 }
 
 // If you want to start measuring performance in your app, pass a function

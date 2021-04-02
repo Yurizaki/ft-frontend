@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import MyForm from "../form/MyForm.js";
 import "./App.css";
 
+require('dotenv').config()
+
 class App extends Component {
 
 	constructor() {
@@ -38,6 +40,8 @@ class App extends Component {
 	}
 
 	apiCall(ticker) {
+		console.log(process.env.TOKEN);
+
 		let prodUrl = 'https://stormy-ridge-08228.herokuapp.com//fund?ticker=';
 		let testUrl = 'http://localhost:8080/fund?ticker=';
 		let url = window.location.hostname.includes('localhost') ? testUrl : prodUrl;
