@@ -40,7 +40,11 @@ class App extends Component {
 	}
 
 	apiCall(ticker) {
+		console.log(process);
+		console.log(process.env);
 		console.log(process.env.TOKEN);
+		console.log(process.env.REACT_APP_TOKEN);
+		console.log(process.env.NODE_ENV);
 
 		let prodUrl = 'https://stormy-ridge-08228.herokuapp.com//fund?ticker=';
 		let testUrl = 'http://localhost:8080/fund?ticker=';
