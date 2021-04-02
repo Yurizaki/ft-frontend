@@ -38,7 +38,11 @@ class App extends Component {
 	}
 
 	apiCall(ticker) {
-		fetch("http://localhost:8080/fund?ticker=" + ticker)
+		let prodUrl = 'https://warm-river-13012.herokuapp.com/fund?ticker=';
+		let testUrl = 'http://localhost:8080/fund?ticker=';
+		let url = window.location.hostname.includes('localhost') ? testUrl : prodUrl;
+
+		fetch(url + ticker)
 		.then((res) => res.json())
 		.then((data) => {
 
