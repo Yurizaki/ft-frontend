@@ -16,28 +16,27 @@ class MyForm extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		console.log(this.state.value);
 		this.props.onSearch(this.state.value);
 	}
 
 	render() {
 		return (
-			<div className="row">
-
-				<div className="column">
-					<h1>Enter Ticker</h1>
+			<div className="column column-60">
+				<div className="row">
+					<div className="column column-40 ">
+						<input
+							placeholder="IITU"
+							autoComplete="off"
+							required="required"
+							onChange={this.handleChange}
+						/>
+					</div>
+					<div className="column column-10">
+						<button onClick={this.handleSubmit}>
+							<span>Submit</span>
+						</button>
+					</div>
 				</div>
-				<form className="column column-75" onSubmit={this.handleSubmit}>
-					<input
-						placeholder="IITU"
-						autoComplete="off"
-						required="required"
-						onChange={this.handleChange}
-					/>
-					<button type="submit">
-						<span>Submit</span>
-					</button>
-				</form>
 			</div>
 		);
 	}

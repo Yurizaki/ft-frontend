@@ -1,0 +1,59 @@
+{
+	"fund": {
+		"name": "iShares S&P 500 Information Technology Sector UCITS ETF USD (Acc), IITU",
+		"ticker": "IITU",
+		"holdings": [
+			{
+				"name": "Apple Inc AAPL",
+				"yearChange": "+88.22%",
+				"weight": "21.65%"
+			},
+			{
+				"name": "Microsoft Corp MSFT",
+				"yearChange": "+44.70%",
+				"weight": "19.19%"
+			},
+			{
+				"name": "Visa Inc V",
+				"yearChange": "+27.98%",
+				"weight": "4.11%"
+			},
+			{
+				"name": "Mastercard Inc MA",
+				"yearChange": "+41.44%",
+				"weight": "3.67%"
+			},
+			{
+				"name": "NVIDIA Corp NVDA",
+				"yearChange": "+93.86%",
+				"weight": "3.65%"
+			},
+			{
+				"name": "PayPal Holdings Inc PYPL",
+				"yearChange": "+143.78%",
+				"weight": "3.19%"
+			},
+			{
+				"name": "Intel Corp INTC",
+				"yearChange": "+14.92%",
+				"weight": "2.93%"
+			},
+			{
+				"name": "Adobe Inc ADBE",
+				"yearChange": "+46.19%",
+				"weight": "2.52%"
+			},
+			{
+				"name": "Cisco Systems Inc CSCO",
+				"yearChange": "+28.40%",
+				"weight": "2.44%"
+			},
+			{
+				"name": "Salesforce.Com Inc CRM",
+				"yearChange": "+40.14%",
+				"weight": "2.24%"
+			}
+		]
+	},
+	"search": "https://markets.ft.com/data/etfs/tearsheet/holdings?s=IITU"
+}

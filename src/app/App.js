@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import MyForm from "../form/MyForm.js";
 import "./App.css";
 
+import data from './data/data.json'
+
 class App extends Component {
 
 	constructor() {
@@ -34,23 +36,23 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		if(window.location.hostname.includes('localhost')) {
-			const testData = '{ "fund" : { "name" : "iShares S&P 500 Information Technology Sector UCITS ETF USD (Acc), IITU", "ticker" : "IITU", "holdings" : [ { "name" : "Apple Inc AAPL", "yearChange" : "+88.22%", "weight" : "21.65%" }, { "name" : "Microsoft Corp MSFT", "yearChange" : "+44.70%", "weight" : "19.19%" }, { "name" : "Visa Inc V", "yearChange" : "+27.98%", "weight" : "4.11%" }, { "name" : "Mastercard Inc MA", "yearChange" : "+41.44%", "weight" : "3.67%" }, { "name" : "NVIDIA Corp NVDA", "yearChange" : "+93.86%", "weight" : "3.65%" }, { "name" : "PayPal Holdings Inc PYPL", "yearChange" : "+143.78%", "weight" : "3.19%" }, { "name" : "Intel Corp INTC", "yearChange" : "+14.92%", "weight" : "2.93%" }, { "name" : "Adobe Inc ADBE", "yearChange" : "+46.19%", "weight" : "2.52%" }, { "name" : "Cisco Systems Inc CSCO", "yearChange" : "+28.40%", "weight" : "2.44%" }, { "name" : "Salesforce.Com Inc CRM", "yearChange" : "+40.14%", "weight" : "2.24%" } ] }, "search" : "https://markets.ft.com/data/etfs/tearsheet/holdings?s=IITU" }';
-			const data = JSON.parse(testData);
+		if(process.env.NODE_ENV === 'development') {
+			const t = data;
 			this.setState({
-				name: data.fund.name,
-				holdings: data.fund.holdings,
-				search: data.search,
+				name: t.fund.name,
+				holdings: t.fund.holdings,
+				search: t.search,
 			});
 		}
-
 	}
 
 	apiCall(ticker) {
 		console.log(process.env.REACT_APP_API_URL);
 		console.log(process.env.REACT_APP_FUND_END_POINT);
-
 		let url = this.state.apiUrl + this.state.fundEndpoint;
+
+		console.log(url);
+		console.log(ticker);
 		fetch(url + ticker)
 		.then((res) => res.json())
 		.then((data) => {
@@ -110,11 +112,29 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className='container'>
-				<MyForm
-					onSearch={(ticker) => this.handle(ticker)}
-					value={this.state.ticker}
-				/>
+			<div className="container">
+				
+				<div className="row">
+					<div className="column column-30">
+						<div className="row">
+							<div className="column">
+							</div>
+						</div>
+					</div>
+					
+					<MyForm
+						onSearch={(ticker) => this.handle(ticker)}
+						value={this.state.ticker}
+					/>
+						
+					<div className="column column-10">
+						<div className="row">
+							<div className="column">
+								<button className="button">Sign In</button>
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<div className="row">
 					<div className="column column-25">
@@ -122,19 +142,27 @@ class App extends Component {
 							<button disabled>Save Session</button>
 						</div>
 						<div className="row">
-							<button onClick={() => this.reset()}>Reset Session</button>
+							<button onClick={() => this.reset()}>
+								Reset Session
+							</button>
 						</div>
 					</div>
 					<div className="column column-75">
-						<h1><a href={this.state.search} rel="noreferrer" target="_blank">{this.state.name}</a></h1>
+						<h1>
+							<a
+								href={this.state.search}
+								rel="noreferrer"
+								target="_blank"
+							>
+								{this.state.name}
+							</a>
+						</h1>
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="column">
-						<HistoryList 
-							history={this.state.tickerHistory}
-						/>
+						<HistoryList history={this.state.tickerHistory} />
 					</div>
 					<div className="column column-75">
 						<NumberList holdings={this.state.holdings} />
