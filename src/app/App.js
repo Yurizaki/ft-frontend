@@ -25,13 +25,11 @@ class App extends Component {
 			this.state.tickerHistory = localTickerHistory;
 		}
 
-		if(process.env.NODE_ENV === 'production') {
-			this.state.apiUrl = process.env.REACT_BACKEND_URL;
-			this.state.fundEndpoint = process.env.REACT_BACKEND_FUND_ENDPOINT;
-		}
-		else {
-			this.state.apiUrl = 'http://localhost';
-			this.state.fundEndpoint = '/fund?ticker=';
+		this.state.apiUrl = process.env.REACT_APP_API_URL;
+		this.state.fundEndpoint = process.env.REACT_APP_FUND_END_POINT;
+
+		if (process.env.NODE_ENV === 'production') {
+			console.log('AMAZING')
 		}
 	}
 
@@ -49,10 +47,8 @@ class App extends Component {
 	}
 
 	apiCall(ticker) {
-		console.log(process.env.REACT_APP_DB_HOST);
-		console.log(process.env.REACT_APP_DB_PASS);
-		console.log(process.env.REACT_BACKEND_URL);
-		console.log(process.env.REACT_BACKEND_FUND_ENDPOINT);
+		console.log(process.env.REACT_APP_API_URL);
+		console.log(process.env.REACT_APP_FUND_END_POINT);
 
 		let url = this.state.apiUrl + this.state.fundEndpoint;
 		fetch(url + ticker)
