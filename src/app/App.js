@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import MyForm from "../form/MyForm.js";
 import "./App.css";
 
-require('dotenv').config()
-
 class App extends Component {
 
 	constructor() {
@@ -15,6 +13,8 @@ class App extends Component {
 			history: [],
 			tickerHistory: [],
 			search: "",
+			apiUrl: "",
+			fundEndpoint: ""
 		};
 
 		let localData = JSON.parse(localStorage.getItem('alexData'));
@@ -23,6 +23,15 @@ class App extends Component {
 			let localTickerHistory = localData.tickerHistory
 			this.state.history = localHistory;
 			this.state.tickerHistory = localTickerHistory;
+		}
+
+		if(process.env.NODE_ENV === 'production') {
+			this.state.apiUrl = process.env.REACT_BACKEND_URL;
+			this.state.fundEndpoint = process.env.REACT_BACKEND_FUND_ENDPOINT;
+		}
+		else {
+			this.state.apiUrl = 'http://localhost';
+			this.state.fundEndpoint = '/fund?ticker=';
 		}
 	}
 
@@ -40,16 +49,12 @@ class App extends Component {
 	}
 
 	apiCall(ticker) {
-		console.log(process);
-		console.log(process.env);
-		console.log(process.env.TOKEN);
-		console.log(process.env.REACT_APP_TOKEN);
-		console.log(process.env.NODE_ENV);
+		console.log(process.env.REACT_APP_DB_HOST);
+		console.log(process.env.REACT_APP_DB_PASS);
+		console.log(process.env.REACT_BACKEND_URL);
+		console.log(process.env.REACT_BACKEND_FUND_ENDPOINT);
 
-		let prodUrl = 'https://stormy-ridge-08228.herokuapp.com//fund?ticker=';
-		let testUrl = 'http://localhost:8080/fund?ticker=';
-		let url = window.location.hostname.includes('localhost') ? testUrl : prodUrl;
-
+		let url = this.state.apiUrl + this.state.fundEndpoint;
 		fetch(url + ticker)
 		.then((res) => res.json())
 		.then((data) => {
