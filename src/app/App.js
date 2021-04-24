@@ -110,6 +110,10 @@ class App extends Component {
 		});
 	}
 
+	signIn() {
+
+	}
+
 	render() {
 		return (
 			<div className="container">
@@ -130,7 +134,7 @@ class App extends Component {
 					<div className="column column-10">
 						<div className="row">
 							<div className="column">
-								<button className="button">Sign In</button>
+								<button className="button" onclick='signIn'>Sign In</button>
 							</div>
 						</div>
 					</div>
@@ -172,7 +176,6 @@ class App extends Component {
 		);
 	}
 }
-
 
 function HistoryList(props) {
 	const history = props.history;
